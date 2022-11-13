@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const util = require('util');
 
-const notesApiRouter = require('./public/routes/notesApiRouter');
+const apiRouter = require('./public/routes/apiRouter');
 
 const PORT = process.env.PORT || 3001
 
@@ -15,11 +15,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 // GET route for homepage
-app.get('/', (req,res) => res.sendFile(path.join(__dirname, '/public/index.html')));
+app.get('/', (req,res) => res.sendFile(path.join(__dirname, './public/index.html')));
 
 // GET route for notes page
-app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
 
-app.use('/api/notes', notesApiRouter);
+app.use('/api/notes', apiRouter);
 
 app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
