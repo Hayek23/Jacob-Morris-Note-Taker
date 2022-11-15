@@ -180,4 +180,7 @@ if (window.location.pathname === '/notes') {
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
 
+// need to create a GET function to 
+
+
 getAndRenderNotes();
